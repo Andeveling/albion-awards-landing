@@ -12,6 +12,8 @@
 - Q: ¿Dónde y cómo debe aparecer el disclaimer que aclara que es un evento de la comunidad? → A: Footer discreto con texto pequeño: "Evento no oficial organizado por la comunidad"
 - Q: ¿Cómo debe presentarse la información de los organizadores en la landing? → A: Sección "Sobre el Evento" que incluya: "Organizado por [kuruogg](twitch) y [andeveling](portfolio) para la comunidad de Albion Online"
 - Q: ¿Cuál debe ser la descripción principal del evento en la landing? → A: "Evento comunitario de premiación donde los jugadores y espectadores de Albion Online votan por los mejores streamers, creadores de contenido y momentos del año"
+- Q: ¿Qué enlaces a redes sociales debe incluir la landing? → A: Solo incluir botones para compartir la landing en redes sociales, sin enlaces a perfiles del evento (se pueden agregar después)
+- Q: ¿Cuál es la fecha y hora exacta de lanzamiento de las votaciones? → A: 24/11/2025 00:00 (zona horaria de Bogotá, GMT-5)
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -101,7 +103,7 @@ Un visitante emocionado puede compartir la landing page en sus redes sociales pa
 - **FR-005**: La página DEBE incluir un formulario para capturar emails de personas interesadas en recibir notificaciones
 - **FR-006**: El formulario DEBE validar que el email ingresado tenga formato válido antes de aceptarlo
 - **FR-007**: La página DEBE mostrar un mensaje de confirmación cuando un email se registre exitosamente
-- **FR-008**: La página DEBE incluir botones para compartir en redes sociales (al menos Twitter/X y Facebook)
+- **FR-008**: La página DEBE incluir botones para compartir la landing en redes sociales (al menos Twitter/X y Facebook), sin necesidad de enlaces a perfiles específicos del evento
 - **FR-009**: La página DEBE ser completamente responsive y funcionar en dispositivos móviles, tablets y desktop
 - **FR-010**: La página DEBE cargar en menos de 3 segundos en conexiones 3G
 - **FR-011**: Cuando la cuenta regresiva llegue a cero, la página DEBE mostrar un mensaje indicando que las votaciones están abiertas
@@ -114,10 +116,10 @@ Un visitante emocionado puede compartir la landing page en sus redes sociales pa
 
 ### Key Entities
 
-- **Cuenta Regresiva**: Representa el tiempo restante hasta el lanzamiento. Atributos: fecha objetivo, zona horaria (Bogotá), estado (activa/expirada)
+- **Cuenta Regresiva**: Representa el tiempo restante hasta el lanzamiento. Atributos: fecha objetivo (24/11/2025 00:00 GMT-5), zona horaria (Bogotá/America/Bogota), estado (activa/expirada), formato de visualización (DD días HH:MM:SS)
 - **Registro de Email**: Representa el interés de un visitante. Atributos: dirección de email, fecha de registro, estado de notificación
 - **Categoría**: Representa una categoría de premiación. Atributos: nombre, descripción breve, orden de visualización
-- **Configuración de Lanzamiento**: Representa los parámetros del evento. Atributos: fecha de lanzamiento, zona horaria, mensaje cuando expire, estado del evento
+- **Configuración de Lanzamiento**: Representa los parámetros del evento. Atributos: fecha de lanzamiento (24/11/2025), zona horaria (GMT-5/Bogotá), mensaje cuando expire, estado del evento
 
 ## Success Criteria *(mandatory)*
 
@@ -136,11 +138,12 @@ Un visitante emocionado puede compartir la landing page en sus redes sociales pa
 
 ## Assumptions *(optional)*
 
-- Se asume que la fecha de lanzamiento del evento será al menos 7 días después del deployment de la landing
+- Se asume que la fecha de lanzamiento del evento (24/11/2025) es definitiva y no cambiará antes del deployment
 - Se asume que los emails registrados serán procesados manualmente o mediante un sistema de envío de correos masivos en una fase posterior
 - Se asume que la landing tendrá tráfico moderado (menos de 10,000 visitantes concurrentes) por lo que una solución estática es suficiente
 - Se asume que el público objetivo tiene acceso a dispositivos con navegadores modernos (últimas 2 versiones)
 - Se asume que los visitantes entienden español (idioma por defecto de la landing)
+- Se asume que el formato de fecha dd/mm/yyyy es preferido para mostrar al usuario, aunque internamente se use ISO format para cálculos
 
 ## Scope Boundaries *(optional)*
 
@@ -165,15 +168,13 @@ Un visitante emocionado puede compartir la landing page en sus redes sociales pa
 ## Dependencies *(optional)*
 
 - La landing page NO depende del sistema de votación completo (funciona independientemente)
-- Se requiere definir la fecha exacta de lanzamiento antes del deployment
+- La fecha de lanzamiento está definida: 24/11/2025 00:00 (zona horaria Bogotá GMT-5)
 - Se requiere hosting configurado (Hostinger) para el deployment de archivos estáticos
 - Se requiere base de datos MySQL para guardar emails registrados (puede ser la misma del sistema de votación)
 
 ## Open Questions *(optional)*
 
-- ¿Cuál es la fecha exacta de lanzamiento de las votaciones? → Necesario para configurar la cuenta regresiva
-- ¿Se requiere algún branding específico, logo o colores corporativos? → Asumir paleta de colores genérica si no se especifica
-- ¿Se debe incluir enlaces a redes sociales oficiales de Albion Awards? → Asumir que sí, pero pueden dejarse como placeholders si aún no existen
+- ¿Se requiere algún branding específico, logo o colores corporativos basados en Albion Online? → Se usarán elementos visuales inspirados en el juego pero adaptados para el evento comunitario
 
 ## Notes *(optional)*
 
