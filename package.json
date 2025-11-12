@@ -11,13 +11,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formkit/tempo": "^0.1.2",
     "@tailwindcss/vite": "^4.1.17",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router": "^7.9.5",
-    "swr": "^2.3.6",
-    "tailwindcss": "^4.1.17",
-    "zustand": "^5.0.8"
+    "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.5",
