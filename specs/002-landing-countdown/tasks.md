@@ -17,15 +17,15 @@
 
 **Purpose**: Project initialization, dependencies installation, and basic configuration
 
-- [ ] T001 Verify project structure matches plan.md (src/components/, src/services/, src/hooks/, src/types/, src/config/, src/utils/, public/, api/)
+- [x] T001 Verify project structure matches plan.md (src/components/, src/services/, src/hooks/, src/types/, src/config/, src/utils/, public/, api/)
 - [x] T002 Install @formkit/tempo dependency for timezone handling
-- [x] T003 [P] Configure Tailwind CSS 4 with DaisyUI
-- [ ] T004 [P] Create .env file with VITE_LAUNCH_DATE=2025-11-24T00:00:00-05:00 and VITE_TIMEZONE=America/Bogota
-- [ ] T005 [P] Add Google Analytics script tag to index.html (optional, empty GA_ID for dev)
-- [ ] T006 Create src/types/countdown.ts with TimeLeft interface (days, hours, minutes, seconds)
-- [ ] T007 [P] Create src/types/api.ts with EmailSubmissionRequest and EmailSubmissionResponse interfaces
-- [ ] T008 [P] Create src/types/category.ts with Category interface (id, name, description, icon, order)
-- [ ] T009 Create src/config/constants.ts with launch date constant and timezone config
+- [x] T003 [P] Configure Tailwind CSS 4 with DaisyUI plugin in tailwind.config.js
+- [x] T004 [P] Create .env file with VITE_LAUNCH_DATE=2025-11-24T00:00:00-05:00 and VITE_TIMEZONE=America/Bogota
+- [x] T005 [P] Add Google Analytics script tag to index.html (optional, empty GA_ID for dev)
+- [x] T006 Create src/types/countdown.ts with TimeLeft interface (days, hours, minutes, seconds)
+- [x] T007 [P] Create src/types/api.ts with EmailSubmissionRequest and EmailSubmissionResponse interfaces
+- [x] T008 [P] Create src/types/category.ts with Category interface (id, name, description, icon, order)
+- [x] T009 Create src/config/constants.ts with launch date constant and timezone config
 
 **Checkpoint**: Foundation ready - components can now be implemented in parallel
 
@@ -37,11 +37,11 @@
 
 **⚠️ CRITICAL**: These tasks must complete before user story implementation begins
 
-- [ ] T010 Implement email validation function in src/utils/validators.ts (regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/)
-- [ ] T011 [P] Implement date formatting utilities in src/utils/format.ts for countdown display
-- [ ] T012 [P] Create API client wrapper in src/services/api.ts with base fetch configuration
-- [ ] T013 Create src/config/categories.json with static data for 10 award categories (Streamer del año, Youtuber del año, Streamer revelación, Rey de las nieblas, Mejor trayectoria, Mejor video tutorial, Mejor clip del año, Mejor kill del año, Blooper del año, Enfado del año)
-- [ ] T014 Update src/index.css with Tailwind 4 imports (@import "tailwindcss") and DaisyUI theme configuration
+- [x] T010 Implement email validation function in src/utils/validators.ts (regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/)
+- [x] T011 [P] Implement date formatting utilities in src/utils/format.ts for countdown display
+- [x] T012 [P] Create API client wrapper in src/services/api.ts with base fetch configuration
+- [x] T013 Create src/config/categories.json with static data for 10 award categories (Streamer del año, Youtuber del año, Streamer revelación, Rey de las nieblas, Mejor trayectoria, Mejor video tutorial, Mejor clip del año, Mejor kill del año, Blooper del año, Enfado del año)
+- [x] T014 Update src/index.css with Tailwind 4 imports (@import "tailwindcss") and DaisyUI theme configuration
 
 **Checkpoint**: Foundation complete - user stories can now be implemented independently
 
@@ -55,13 +55,13 @@
 
 ### Implementation for User Story 1
 
-- [ ] T015 [P] [US1] Create src/hooks/useCountdown.ts hook that uses Tempo to calculate time difference in Bogotá timezone
-- [ ] T016 [P] [US1] Implement countdown update logic with setInterval (1 second interval) in useCountdown.ts
-- [ ] T017 [P] [US1] Create src/components/CountdownDisplay.tsx using DaisyUI countdown component (https://daisyui.com/components/countdown/)
-- [ ] T018 [US1] Create src/components/Countdown.tsx that integrates useCountdown hook and CountdownDisplay component
-- [ ] T019 [US1] Add expired state handling in Countdown.tsx to show "¡Las votaciones ya están abiertas!" when countdown reaches zero
-- [ ] T020 [US1] Implement responsive countdown layout (show days when >24h, hide days when <24h) in CountdownDisplay.tsx
-- [ ] T021 [US1] Integrate Countdown component into src/App.tsx at the top of the page
+- [x] T015 [P] [US1] Create src/hooks/useCountdown.ts hook that uses Tempo to calculate time difference in Bogotá timezone
+- [x] T016 [P] [US1] Implement countdown update logic with setInterval (1 second interval) in useCountdown.ts
+- [x] T017 [P] [US1] Create src/components/CountdownDisplay.tsx using DaisyUI countdown component (https://daisyui.com/components/countdown/)
+- [x] T018 [US1] Create src/components/Countdown.tsx that integrates useCountdown hook and CountdownDisplay component
+- [x] T019 [US1] Add expired state handling in Countdown.tsx to show "¡Las votaciones ya están abiertas!" when countdown reaches zero
+- [x] T020 [US1] Implement responsive countdown layout (show days when >24h, hide days when <24h) in CountdownDisplay.tsx
+- [x] T021 [US1] Integrate Countdown component into src/App.tsx at the top of the page
 
 **Checkpoint**: Countdown timer should be fully functional, updating every second, showing correct Bogotá timezone
 

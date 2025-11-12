@@ -1,5 +1,9 @@
-
+import { Countdown } from './components/Countdown'
 
 export const App = () => {
-  return <div className="text-primary">Albion Awards Landing Page</div>;
+  return (
+    <div className="min-h-screen">
+      <Countdown />
+    </div>
+  )
 }
