@@ -82,15 +82,41 @@ pnpm run lint
 
 ### Deployment to Hostinger
 
+**Método rápido con script automatizado:**
+
+```bash
+# 1. Generar build y empaquetarlo
+pnpm run deploy:build
+
+# 2. Subir el ZIP generado a Hostinger
+# Archivo generado: deploy/albion-awards_TIMESTAMP.zip
+```
+
+El script `deploy:build` ejecuta automáticamente:
+- Build de producción con Vite
+- Generación de `.htaccess` optimizado para SPA routing
+- Copia de archivos PHP del directorio `api/`
+- Creación de archivo ZIP listo para desplegar
+
+**Pasos detallados**:
+
 1. **Frontend**:
-   - Run `pnpm run build` locally
-   - Upload `dist/` contents to Hostinger root folder via FTP/SFTP
-   - Configure `.htaccess` for SPA routing (see below)
+   - Ejecuta `pnpm run deploy:build`
+   - Sube el contenido del ZIP a la raíz de Hostinger vía FTP/SFTP o cPanel File Manager
+   - El `.htaccess` ya está incluido para SPA routing
 
 2. **Backend**:
-   - Upload PHP files from `src/api/` to `/api/` folder on Hostinger
-   - Configure `.env` with database credentials (PHP-side only)
-   - Set CORS headers in PHP to allow requests from your domain
+   - Los archivos PHP de `api/` ya están incluidos en el ZIP
+   - Configura `.env` con credenciales de base de datos (PHP-side only)
+   - Configura CORS headers en PHP para permitir requests desde tu dominio
+
+**Scripts disponibles**:
+- `pnpm run deploy:build` - Genera build y ZIP para deployment
+- `pnpm run deploy:clean` - Limpia builds antiguos (mantiene los últimos 3)
+
+📖 **Guías completas**:
+- [Guía de Deployment en Hostinger](docs/HOSTINGER_DEPLOYMENT_GUIDE_ES.md)
+- [Documentación de Scripts](scripts/README.md)
 
 ### .htaccess Configuration for SPA Routing
 

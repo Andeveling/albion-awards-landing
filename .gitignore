@@ -16,6 +16,10 @@ dist-ssr
 build
 *.local
 
+# Deploy artifacts
+deploy/
+*.zip
+
 # Environment variables
 .env
 .env.local

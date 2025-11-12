@@ -6,6 +6,8 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
+		"deploy:build": "bash scripts/deploy-build.sh",
+		"deploy:clean": "bash scripts/clean-deploy.sh",
 		"lint": "biome check --fix",
 		"format": "biome format --write",
 		"preview": "vite preview"
