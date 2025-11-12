@@ -89,8 +89,8 @@ export function CategoryCard({ category, index }: CategoryCardProps) {
       <div className="relative flex flex-col items-center gap-4 text-center">
         {/* Icon */}
         <div className={`flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 bg-linear-to-br ${colorClass.split(" ")[ 0 ]} ${colorClass.split(" ")[ 1 ]}`}>
-          {iconComponents[category.icon as keyof typeof iconComponents] ?
-            React.createElement(iconComponents[category.icon as keyof typeof iconComponents], {
+          {iconComponents[ category.icon as keyof typeof iconComponents ] ?
+            React.createElement(iconComponents[ category.icon as keyof typeof iconComponents ], {
               size: 40,
               className: iconColor
             })
