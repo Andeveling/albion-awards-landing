@@ -3,70 +3,70 @@
     "id": "streamer-del-año",
     "name": "Streamer del Año",
     "description": "El streamer de Albion Online que más destacó durante el año por su contenido, entretenimiento y dedicación",
-    "icon": "🎮",
+    "icon": "IconDeviceGamepad2",
     "order": 1
   },
   {
     "id": "youtuber-del-año",
     "name": "Youtuber del Año",
     "description": "El mejor creador de contenido de Albion Online en YouTube por sus videos, tutoriales y entretenimiento",
-    "icon": "🎥",
+    "icon": "IconCamera",
     "order": 2
   },
   {
     "id": "streamer-revelacion",
     "name": "Streamer Revelación",
     "description": "El nuevo streamer que sorprendió a la comunidad este año con su contenido fresco y único",
-    "icon": "⭐",
+    "icon": "IconStar",
     "order": 3
   },
   {
     "id": "rey-de-las-nieblas",
     "name": "Rey de las Nieblas",
     "description": "El jugador/streamer que dominó las Nieblas Negras con estrategia, habilidad y contenido espectacular",
-    "icon": "👑",
+    "icon": "IconCrown",
     "order": 4
   },
   {
     "id": "mejor-trayectoria",
     "name": "Mejor Trayectoria",
     "description": "El streamer/creador con la trayectoria más consistente y destacada a lo largo del año",
-    "icon": "🏆",
+    "icon": "IconTrophy",
     "order": 5
   },
   {
     "id": "mejor-video-tutorial",
     "name": "Mejor Video Tutorial",
     "description": "El video tutorial que mejor ayudó a la comunidad a mejorar su gameplay y entender mecánicas del juego",
-    "icon": "📚",
+    "icon": "IconBook",
     "order": 6
   },
   {
     "id": "mejor-clip-del-año",
     "name": "Mejor Clip del Año",
     "description": "El clip más impresionante, emocionante o memorable de Albion Online durante el año",
-    "icon": "🎬",
+    "icon": "IconMovie",
     "order": 7
   },
   {
     "id": "mejor-kill-del-año",
     "name": "Mejor Kill del Año",
     "description": "La kill más épica, estratégica o espectacular capturada en video durante el año",
-    "icon": "⚔️",
+    "icon": "IconSword",
     "order": 8
   },
   {
     "id": "blooper-del-año",
     "name": "Blooper del Año",
     "description": "El momento más gracioso, fail o situación inesperada que hizo reír a toda la comunidad",
-    "icon": "😂",
+    "icon": "IconMoodHappy",
     "order": 9
   },
   {
     "id": "enfado-del-año",
     "name": "Enfado del Año",
     "description": "El momento de rage o enfado más memorable y entretenido capturado en stream",
-    "icon": "😡",
+    "icon": "IconMoodAngry",
     "order": 10
   }
 ]

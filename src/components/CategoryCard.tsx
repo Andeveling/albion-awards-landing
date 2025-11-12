@@ -1,9 +1,41 @@
-import type { Category } from '../types/category'
+import {
+  IconBook,
+  IconCamera,
+  IconCrown,
+  IconDeviceGamepad2,
+  IconMoodAngry,
+  IconMoodHappy,
+  IconMovie,
+  IconStar,
+  IconSword,
+  IconTrophy,
+} from "@tabler/icons-react";
+import React from "react";
+import type { Category } from "../types/category";
 
 interface CategoryCardProps {
-  category: Category
-  index: number
+  category: Category;
+  index: number;
 }
+
+/**
+ * Mapeo de iconos de Tabler
+ */
+const iconComponents: Record<
+  string,
+  React.ComponentType<{ size?: number; className?: string }>
+> = {
+  IconDeviceGamepad2,
+  IconCamera,
+  IconStar,
+  IconCrown,
+  IconTrophy,
+  IconBook,
+  IconMovie,
+  IconSword,
+  IconMoodHappy,
+  IconMoodAngry,
+};
 
 /**
  * Card para mostrar una categoría individual con efecto glassmorphism
@@ -19,7 +51,18 @@ export function CategoryCard({ category, index }: CategoryCardProps) {
     'from-blue-500/20 to-indigo-500/20 border-blue-500/30 hover:border-blue-400/50',
   ]
 
+  // Gradientes de texto monocolor para cada tarjeta
+  const textGradients = [
+    'from-amber-400 to-orange-400',
+    'from-cyan-400 to-blue-400',
+    'from-purple-400 to-pink-400',
+    'from-green-400 to-emerald-400',
+    'from-red-400 to-rose-400',
+    'from-blue-400 to-indigo-400',
+  ]
+
   const colorClass = colors[ index % colors.length ]
+  const textGradient = textGradients[ index % textGradients.length ]
 
   return (
     <div
@@ -27,17 +70,25 @@ export function CategoryCard({ category, index }: CategoryCardProps) {
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Gradient Overlay on Hover */}
-      <div className={`absolute inset-0 bg-linear-to-br opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${colorClass.split(' ')[ 0 ]}`} />
+      <div
+        className={`absolute inset-0 bg-linear-to-br opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${colorClass.split(" ")[ 0 ]}`}
+      />
 
       {/* Content */}
       <div className="relative flex flex-col items-center gap-4 text-center">
         {/* Icon */}
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-4xl backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
-          {category.icon}
+        <div className={`flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 bg-linear-to-br ${colorClass.split(" ")[ 0 ]} ${colorClass.split(" ")[ 1 ]}`}>
+          {iconComponents[ category.icon as keyof typeof iconComponents ] ?
+            React.createElement(iconComponents[ category.icon as keyof typeof iconComponents ], {
+              size: 40,
+              className: `text-white bg-linear-to-br ${textGradient} bg-clip-text`
+            })
+            : <span className="text-3xl">{category.icon}</span>
+          }
         </div>
 
         {/* Name */}
-        <h3 className="text-xl font-bold uppercase tracking-wide text-white md:text-2xl">
+        <h3 className={`text-xl font-bold uppercase tracking-wide text-transparent bg-linear-to-br ${textGradient} bg-clip-text md:text-2xl`}>
           {category.name}
         </h3>
 
@@ -50,5 +101,5 @@ export function CategoryCard({ category, index }: CategoryCardProps) {
       {/* Bottom Border Accent */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
     </div>
-  )
+  );
 }
