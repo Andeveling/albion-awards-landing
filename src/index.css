@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @plugin "daisyui/theme" {
-  name: "night";
+  name: "albion";
   default: true;
   prefersdark: false;
   color-scheme: "dark";

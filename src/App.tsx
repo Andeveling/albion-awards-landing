@@ -1,4 +1,5 @@
-import { RouterProvider } from "react-router/dom";
-import { router } from "./router.tsx";
 
-export const App = () => <RouterProvider router={router} />;
+
+export const App = () => {
+  return <div className="text-primary">Albion Awards Landing Page</div>;
+}
