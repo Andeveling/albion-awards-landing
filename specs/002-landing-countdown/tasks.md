@@ -115,12 +115,12 @@
 
 ### Implementation for User Story 4
 
-- [ ] T036 [P] [US4] Create src/components/ShareButtons.tsx with Twitter/X and Facebook share buttons
-- [ ] T037 [US4] Implement Web Share API in ShareButtons with fallback to manual share links for desktop
-- [ ] T038 [US4] Add Twitter/X share URL with pre-formatted tweet text about Albion Awards
-- [ ] T039 [US4] Add Facebook share URL with landing page URL and Open Graph image
-- [ ] T040 [US4] Style share buttons with DaisyUI button component and social media icons
-- [ ] T041 [US4] Integrate ShareButtons component into src/App.tsx (near countdown or footer)
+- [x] T036 [P] [US4] Create src/components/ShareButtons.tsx with Twitter/X and Facebook share buttons
+- [x] T037 [US4] Implement Web Share API in ShareButtons with fallback to manual share links for desktop
+- [x] T038 [US4] Add Twitter/X share URL with pre-formatted tweet text about Albion Awards
+- [x] T039 [US4] Add Facebook share URL with landing page URL and Open Graph image
+- [x] T040 [US4] Style share buttons with DaisyUI button component and social media icons
+- [x] T041 [US4] Integrate ShareButtons component into src/App.tsx (near countdown or footer)
 
 **Checkpoint**: Share buttons should open correct social media windows/apps with pre-filled content
 
@@ -130,13 +130,13 @@
 
 **Purpose**: Event description, organizers info, footer disclaimer, and overall page structure
 
-- [ ] T042 [P] Create src/components/EventInfo.tsx with event description paragraph
-- [ ] T043 [P] Add organizers information to EventInfo component (kuruogg: https://www.twitch.tv/kuruogg, andeveling: https://andeveling.vercel.app/)
-- [ ] T044 [P] Create src/components/Footer.tsx with disclaimer text "Evento no oficial organizado por la comunidad"
-- [ ] T045 Integrate EventInfo component into src/App.tsx (between categories and email form)
-- [ ] T046 Integrate Footer component into src/App.tsx at the bottom of the page
-- [ ] T047 Implement overall page layout structure in src/App.tsx (header with countdown, main content, footer)
-- [ ] T048 Add Open Graph meta tags to index.html for social media previews (title, description, image)
+- [x] T042 [P] Create src/components/EventInfo.tsx with event description paragraph
+- [x] T043 [P] Add organizers information to EventInfo component (kuruogg: https://www.twitch.tv/kuruogg, andeveling: https://andeveling.vercel.app/)
+- [x] T044 [P] Create src/components/Footer.tsx with disclaimer text "Evento no oficial organizado por la comunidad"
+- [x] T045 Integrate EventInfo component into src/App.tsx (between categories and email form)
+- [x] T046 Integrate Footer component into src/App.tsx at the bottom of the page
+- [x] T047 Implement overall page layout structure in src/App.tsx (header with countdown, main content, footer)
+- [x] T048 Add Open Graph meta tags to index.html for social media previews (title, description, image)
 
 **Checkpoint**: Complete landing page structure with all content sections visible and properly ordered
 

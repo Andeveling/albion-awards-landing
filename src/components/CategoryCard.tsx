@@ -61,8 +61,19 @@ export function CategoryCard({ category, index }: CategoryCardProps) {
     'from-blue-400 to-indigo-400',
   ]
 
+  // Colores de iconos sólidos (sin bg-clip-text porque son SVG)
+  const iconColors = [
+    'text-amber-400',
+    'text-cyan-400',
+    'text-purple-400',
+    'text-green-400',
+    'text-red-400',
+    'text-blue-400',
+  ]
+
   const colorClass = colors[ index % colors.length ]
   const textGradient = textGradients[ index % textGradients.length ]
+  const iconColor = iconColors[ index % iconColors.length ]
 
   return (
     <div
@@ -78,10 +89,10 @@ export function CategoryCard({ category, index }: CategoryCardProps) {
       <div className="relative flex flex-col items-center gap-4 text-center">
         {/* Icon */}
         <div className={`flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 bg-linear-to-br ${colorClass.split(" ")[ 0 ]} ${colorClass.split(" ")[ 1 ]}`}>
-          {iconComponents[ category.icon as keyof typeof iconComponents ] ?
-            React.createElement(iconComponents[ category.icon as keyof typeof iconComponents ], {
+          {iconComponents[category.icon as keyof typeof iconComponents] ?
+            React.createElement(iconComponents[category.icon as keyof typeof iconComponents], {
               size: 40,
-              className: `text-white bg-linear-to-br ${textGradient} bg-clip-text`
+              className: iconColor
             })
             : <span className="text-3xl">{category.icon}</span>
           }
