@@ -2,7 +2,7 @@
  * Email validation utilities
  */
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
  * Validates an email address format
@@ -10,17 +10,17 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
  * @returns true if the email is valid, false otherwise
  */
 export function validateEmail(email: string): boolean {
-  if (!email || typeof email !== 'string') {
-    return false
-  }
+	if (!email || typeof email !== "string") {
+		return false;
+	}
 
-  const trimmedEmail = email.trim()
+	const trimmedEmail = email.trim();
 
-  if (trimmedEmail.length === 0 || trimmedEmail.length > 255) {
-    return false
-  }
+	if (trimmedEmail.length === 0 || trimmedEmail.length > 255) {
+		return false;
+	}
 
-  return EMAIL_REGEX.test(trimmedEmail)
+	return EMAIL_REGEX.test(trimmedEmail);
 }
 
 /**
@@ -29,5 +29,5 @@ export function validateEmail(email: string): boolean {
  * @returns The sanitized email address
  */
 export function sanitizeEmail(email: string): string {
-  return email.trim().toLowerCase()
+	return email.trim().toLowerCase();
 }

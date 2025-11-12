@@ -1,40 +1,36 @@
-import { API_BASE_URL } from '../config/constants'
+import { API_BASE_URL } from "../config/constants";
 
 /**
  * API client configuration
  */
 export interface ApiConfig {
-  baseURL: string
-  headers?: Record<string, string>
+	baseURL: string;
+	headers?: Record<string, string>;
 }
 
 /**
  * Default API configuration
  */
 const defaultConfig: ApiConfig = {
-  baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json'
-  }
-}
+	baseURL: API_BASE_URL,
+	headers: {
+		"Content-Type": "application/json",
+	},
+};
 
 /**
  * Generic API error class
  */
 export class ApiError extends Error {
-  statusCode?: number
-  errorCode?: string
+	statusCode?: number;
+	errorCode?: string;
 
-  constructor(
-    message: string,
-    statusCode?: number,
-    errorCode?: string
-  ) {
-    super(message)
-    this.name = 'ApiError'
-    this.statusCode = statusCode
-    this.errorCode = errorCode
-  }
+	constructor(message: string, statusCode?: number, errorCode?: string) {
+		super(message);
+		this.name = "ApiError";
+		this.statusCode = statusCode;
+		this.errorCode = errorCode;
+	}
 }
 
 /**
@@ -44,44 +40,44 @@ export class ApiError extends Error {
  * @returns The parsed JSON response
  */
 export async function apiFetch<T>(
-  endpoint: string,
-  options: RequestInit = {}
+	endpoint: string,
+	options: RequestInit = {},
 ): Promise<T> {
-  const url = `${defaultConfig.baseURL}${endpoint}`
+	const url = `${defaultConfig.baseURL}${endpoint}`;
 
-  const config: RequestInit = {
-    ...options,
-    headers: {
-      ...defaultConfig.headers,
-      ...options.headers
-    }
-  }
+	const config: RequestInit = {
+		...options,
+		headers: {
+			...defaultConfig.headers,
+			...options.headers,
+		},
+	};
 
-  try {
-    const response = await fetch(url, config)
+	try {
+		const response = await fetch(url, config);
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}))
-      throw new ApiError(
-        errorData.message || `HTTP ${response.status}: ${response.statusText}`,
-        response.status,
-        errorData.error_code
-      )
-    }
+		if (!response.ok) {
+			const errorData = await response.json().catch(() => ({}));
+			throw new ApiError(
+				errorData.message || `HTTP ${response.status}: ${response.statusText}`,
+				response.status,
+				errorData.error_code,
+			);
+		}
 
-    return await response.json()
-  } catch (error) {
-    if (error instanceof ApiError) {
-      throw error
-    }
+		return await response.json();
+	} catch (error) {
+		if (error instanceof ApiError) {
+			throw error;
+		}
 
-    // Network or parsing error
-    throw new ApiError(
-      error instanceof Error ? error.message : 'An unknown error occurred',
-      undefined,
-      'NETWORK_ERROR'
-    )
-  }
+		// Network or parsing error
+		throw new ApiError(
+			error instanceof Error ? error.message : "An unknown error occurred",
+			undefined,
+			"NETWORK_ERROR",
+		);
+	}
 }
 
 /**
@@ -91,13 +87,13 @@ export async function apiFetch<T>(
  * @returns The parsed JSON response
  */
 export async function apiPost<T, D = unknown>(
-  endpoint: string,
-  data: D
+	endpoint: string,
+	data: D,
 ): Promise<T> {
-  return apiFetch<T>(endpoint, {
-    method: 'POST',
-    body: JSON.stringify(data)
-  })
+	return apiFetch<T>(endpoint, {
+		method: "POST",
+		body: JSON.stringify(data),
+	});
 }
 
 /**
@@ -106,7 +102,7 @@ export async function apiPost<T, D = unknown>(
  * @returns The parsed JSON response
  */
 export async function apiGet<T>(endpoint: string): Promise<T> {
-  return apiFetch<T>(endpoint, {
-    method: 'GET'
-  })
+	return apiFetch<T>(endpoint, {
+		method: "GET",
+	});
 }

@@ -5,22 +5,22 @@ import { Footer } from "./components/Footer";
 import { ShareButtons } from "./components/ShareButtons";
 
 export const App = () => {
-  return (
-    <div className="min-h-screen bg-black">
-      {/* Hero Section with Countdown */}
-      <Countdown />
+	return (
+		<div className="min-h-screen bg-black">
+			{/* Hero Section with Countdown */}
+			<Countdown />
 
-      {/* Share Buttons */}
-      <ShareButtons />
+			{/* Share Buttons */}
+			<ShareButtons />
 
-      {/* Categories Section */}
-      <CategoriesList />
+			{/* Categories Section */}
+			<CategoriesList />
 
-      {/* Event Info & Organizers */}
-      <EventInfo />
+			{/* Event Info & Organizers */}
+			<EventInfo />
 
-      {/* Footer */}
-      <Footer />
-    </div>
-  );
+			{/* Footer */}
+			<Footer />
+		</div>
+	);
 };
