@@ -8,10 +8,10 @@ export function EventInfo() {
 		<div className="mx-auto w-full max-w-4xl px-4 py-16">
 			{/* Event Description */}
 			<div className="mb-12 text-center">
-				<h2 className="mb-4 text-3xl font-bold uppercase tracking-wide text-transparent bg-linear-to-br from-amber-400 to-orange-400 bg-clip-text md:text-4xl">
+				<h2 className="mb-4 text-3xl font-bold uppercase tracking-wide text-transparent bg-linear-to-br from-amber-400 to-orange-400 bg-clip-text md:text-6xl">
 					¿Qué son los Albion Awards?
 				</h2>
-				<p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-300">
+				<p className="mx-auto max-w-2xl text-xl leading-relaxed text-gray-300">
 					Los <span className="font-semibold text-white">Albion Awards</span>{" "}
 					son los primeros premios dedicados a reconocer el talento y dedicación
 					de los <span className="font-semibold text-white">streamers</span> y{" "}
@@ -20,7 +20,7 @@ export function EventInfo() {
 					</span>{" "}
 					de Albion Online en la comunidad hispanohablante.
 				</p>
-				<p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-gray-400">
+				<p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-gray-300">
 					Una celebración del entretenimiento, la creatividad y los momentos
 					memorables que hacen grande a nuestra comunidad.
 				</p>

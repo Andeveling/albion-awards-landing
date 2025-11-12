@@ -2,6 +2,7 @@ import { LAUNCH_DATE } from "../config/constants";
 import { useCountdown } from "../hooks/useCountdown";
 import { formatDate } from "../utils/format";
 import { CountdownDisplay } from "./CountdownDisplay";
+import { CreatorBadge } from "./CreatorBadge";
 
 /**
  * Main countdown component that manages state and displays countdown or expired message
@@ -62,31 +63,25 @@ export function Countdown() {
 
 	return (
 		<div className="relative min-h-screen w-full overflow-hidden">
-			{/* Background Image with Overlay */}
-			<div
-				className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-				style={{ backgroundImage: "url(/bg-albion.webp)" }}
-			>
-				<div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/60 to-black/80" />
-			</div>
-
 			{/* Content */}
 			<div className="relative z-10 flex min-h-screen items-center justify-center px-4 py-12">
 				<div className="w-full max-w-6xl">
 					{/* Main Title */}
-					<div className="mb-12 text-center">
-						<h1 className="mb-4 text-6xl font-black uppercase tracking-tight text-white drop-shadow-2xl md:text-8xl lg:text-9xl">
-							<span className="bg-linear-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+					<div className="mb-4 text-center md:mb-6">
+						{/* Creator Badge */}
+						<CreatorBadge />
+
+						<h1 className="mb-4 text-5xl font-black uppercase tracking-tight text-white drop-shadow-2xl md:text-7xl lg:text-8xl">
+							<span className="bg-linear-to-r from-amber-300 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
 								Albion
 							</span>{" "}
-							<span className="bg-linear-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+							<span className="bg-linear-to-r from-amber-400 via-orange-400 to-amber-600 bg-clip-text text-transparent">
 								Awards
-							</span>
+							</span>{" "}
+							<span className="mb-4 font-bold text-cyan-400 md:mb-4">2025</span>
 						</h1>
-						<div className="mb-6 text-4xl font-bold text-cyan-400 md:text-6xl">
-							2025
-						</div>
-						<p className="mx-auto max-w-2xl text-lg text-gray-300 md:text-xl">
+
+						<p className="mx-auto max-w-2xl text-base text-gray-300 md:text-lg lg:text-xl">
 							Las votaciones comienzan el{" "}
 							<span className="font-semibold text-amber-400">
 								{formatDate(new Date(LAUNCH_DATE))}
@@ -96,9 +91,6 @@ export function Countdown() {
 
 					{/* Glassmorphism Card */}
 					<div className="mx-auto max-w-4xl rounded-3xl border border-white/20 bg-black/40 p-8 shadow-2xl backdrop-blur-xl md:p-12">
-						<h2 className="mb-8 text-center text-3xl font-bold uppercase tracking-wide text-white md:text-4xl">
-							Tiempo restante
-						</h2>
 						<CountdownDisplay timeLeft={timeLeft} />
 
 						<div className="mt-12 text-center">

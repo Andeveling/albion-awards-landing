@@ -1,3 +1,4 @@
+
 /**
  * Componente Footer con disclaimer del evento
  */
