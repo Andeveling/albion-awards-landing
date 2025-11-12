@@ -161,11 +161,149 @@ dist/                           # Build output (gitignored)
 
 All constitution principles are satisfied. Dependency minimalism flags (React Router, Zustand, SWR) will be evaluated in Phase 0 research to determine if simpler alternatives suffice.
 
-## Complexity Tracking
+---
 
-> **Fill ONLY if Constitution Check has violations that must be justified**
+## Phase 0: Research & Technology Decisions
 
-| Violation                  | Why Needed         | Simpler Alternative Rejected Because |
-| -------------------------- | ------------------ | ------------------------------------ |
-| [e.g., 4th project]        | [current need]     | [why 3 projects insufficient]        |
-| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient]  |
+**Status**: ✅ COMPLETED  
+**Document**: [`research.md`](./research.md)
+
+### Key Decisions Made
+
+1. **Countdown Library**: Tempo (timezone support for Bogotá GMT-5)
+2. **UI Components**: DaisyUI 5.5.0 (Tailwind-based, zero JS runtime)
+3. **State Management**: React hooks only (useState, useContext) - **Zustand REMOVED**
+4. **Data Fetching**: Native fetch() - **SWR REMOVED**
+5. **Routing**: None needed (single-page landing) - **React Router REMOVED**
+6. **Form Validation**: HTML5 + custom regex (no Zod/Yup)
+7. **Social Sharing**: Web Share API + fallback links
+8. **Analytics**: Google Analytics 4 (script tag only)
+
+### Dependencies Resolution
+
+**Added**:
+- ✅ `@formkit/tempo` (date/time with timezone support)
+
+**Removed** (honoring Dependency Minimalism):
+- ❌ `react-router` (unnecessary for single-page)
+- ❌ `zustand` (React hooks sufficient)
+- ❌ `swr` (native fetch sufficient for one API call)
+
+**Final Production Stack**:
+- React 19.2.0 + TypeScript 5.9+
+- Vite 7.2.2 + Tailwind CSS 4.1.17
+- DaisyUI 5.5.0 + Tempo
+- **Total production dependencies: 5** (vs original 8)
+
+---
+
+## Phase 1: Design & Data Model
+
+**Status**: ✅ COMPLETED  
+**Documents**:
+- [`data-model.md`](./data-model.md)
+- [`contracts/emails-api.yaml`](./contracts/emails-api.yaml)
+- [`quickstart.md`](./quickstart.md)
+
+### Data Model Summary
+
+**Frontend State**:
+```typescript
+interface CountdownState {
+  targetDate: Date
+  timeLeft: { days, hours, minutes, seconds } | null
+  isExpired: boolean
+}
+
+interface EmailFormState {
+  email: string
+  isSubmitting: boolean
+  isSubmitted: boolean
+  error: string | null
+}
+
+interface Category {
+  id: string
+  name: string
+  description: string
+  icon: string
+  order: number
+}
+```
+
+**Backend Schema** (MySQL):
+```sql
+CREATE TABLE email_registrations (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  registered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  ip_address VARCHAR(45) NULL,
+  INDEX idx_email (email)
+);
+```
+
+### API Contract
+
+**Endpoint**: `POST /api/emails`
+
+**Request**:
+```json
+{
+  "email": "usuario@ejemplo.com"
+}
+```
+
+**Success Response** (200):
+```json
+{
+  "success": true,
+  "message": "Email registrado exitosamente"
+}
+```
+
+**Error Responses**:
+- 400: Invalid email format (`INVALID_EMAIL`)
+- 409: Email already exists (`EMAIL_EXISTS`)
+- 429: Rate limit exceeded (`RATE_LIMIT_EXCEEDED`)
+
+**OpenAPI Spec**: See [`contracts/emails-api.yaml`](./contracts/emails-api.yaml)
+
+### Setup Instructions
+
+**Quick Start** (5 minutes):
+```bash
+# Clone and install
+git checkout 002-landing-countdown
+pnpm install
+
+# Configure environment
+cp .env.example .env
+# Edit .env with launch date: 2025-11-24T00:00:00-05:00
+
+# Start dev server
+pnpm run dev
+# → http://localhost:5173
+```
+
+**Full Guide**: See [`quickstart.md`](./quickstart.md) for:
+- Detailed setup instructions
+- Backend PHP configuration
+- Troubleshooting common issues
+- Deployment to Hostinger
+
+---
+
+## Phase 2: Task Breakdown
+
+**Status**: ⏳ PENDING  
+**Generate via**: `/speckit.tasks` command
+
+This phase will break down the implementation into discrete tasks:
+- Scaffolding (Vite setup, Tailwind config, folder structure)
+- Component implementation (Countdown, EmailForm, CategoriesList, etc.)
+- Service layer (API client, countdown logic, validation)
+- Styling (DaisyUI integration, custom theme)
+- Testing (unit tests, integration tests)
+- Deployment (build optimization, Hostinger upload)
+
+**Next Command**: Run `/speckit.tasks` to generate `tasks.md` with prioritized, assignable tasks
