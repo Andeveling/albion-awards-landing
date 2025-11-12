@@ -34,3 +34,49 @@
   --depth: 1;
   --noise: 0;
 }
+
+/* Animaciones y efectos personalizados */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px currentColor);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px currentColor);
+  }
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body con fondo oscuro */
+body {
+  background-color: #000;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism backdrop support */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
