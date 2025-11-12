@@ -1,3 +1,99 @@
 @import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "albion";
+  default: true;
+  prefersdark: false;
+  color-scheme: "dark";
+  --color-base-100: oklch(14% 0.005 285.823);
+  --color-base-200: oklch(21% 0.006 285.885);
+  --color-base-300: oklch(27% 0.006 286.033);
+  --color-base-content: oklch(96% 0.001 286.375);
+  --color-primary: oklch(75% 0.183 55.934);
+  --color-primary-content: oklch(26% 0.079 36.259);
+  --color-secondary: oklch(70% 0.183 293.541);
+  --color-secondary-content: oklch(28% 0.141 291.089);
+  --color-accent: oklch(76% 0.177 163.223);
+  --color-accent-content: oklch(26% 0.051 172.552);
+  --color-neutral: oklch(27% 0.006 286.033);
+  --color-neutral-content: oklch(98% 0 0);
+  --color-info: oklch(71% 0.143 215.221);
+  --color-info-content: oklch(98% 0.019 200.873);
+  --color-success: oklch(76% 0.233 130.85);
+  --color-success-content: oklch(98% 0.031 120.757);
+  --color-warning: oklch(79% 0.184 86.047);
+  --color-warning-content: oklch(98% 0.026 102.212);
+  --color-error: oklch(64% 0.246 16.439);
+  --color-error-content: oklch(96% 0.015 12.422);
+  --radius-selector: 2rem;
+  --radius-field: 2rem;
+  --radius-box: 2rem;
+  --size-selector: 0.28125rem;
+  --size-field: 0.28125rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
 
-/* Puedes agregar tus estilos personalizados debajo */
+/* Animaciones y efectos personalizados */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px currentColor);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px currentColor);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de entrada para cards */
+.animate-slideInUp {
+  animation: slideInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body con fondo oscuro */
+body {
+  background-color: #000;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism backdrop support */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
