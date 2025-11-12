@@ -75,11 +75,11 @@
 
 ### Implementation for User Story 2
 
-- [ ] T022 [P] [US2] Create src/components/CategoryCard.tsx to display individual category with icon, name, and description
-- [ ] T023 [US2] Create src/components/CategoriesList.tsx that loads categories from src/config/categories.json and renders grid layout
-- [ ] T024 [US2] Implement responsive grid for CategoriesList (1 column mobile, 2 columns tablet, 3 columns desktop) using Tailwind
-- [ ] T025 [US2] Add scroll reveal animation to CategoryCard using CSS transitions (optional polish)
-- [ ] T026 [US2] Integrate CategoriesList component into src/App.tsx below countdown section
+- [x] T022 [P] [US2] Create src/components/CategoryCard.tsx to display individual category with icon, name, and description
+- [x] T023 [US2] Create src/components/CategoriesList.tsx that loads categories from src/config/categories.json and renders grid layout
+- [x] T024 [US2] Implement responsive grid for CategoriesList (1 column mobile, 2 columns tablet, 3 columns desktop) using Tailwind
+- [x] T025 [US2] Add scroll reveal animation to CategoryCard using CSS transitions (optional polish)
+- [x] T026 [US2] Integrate CategoriesList component into src/App.tsx below countdown section
 
 **Checkpoint**: All 10 categories should be visible, readable on mobile without horizontal scroll, properly spaced
 
