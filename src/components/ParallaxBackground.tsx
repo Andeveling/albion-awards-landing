@@ -12,7 +12,7 @@ export function ParallaxBackground() {
   const { scrollY } = useScroll();
 
   // Transform values based on scroll position
-  const backgroundY = useTransform(scrollY, [ 0, 1000 ], [ "0%", "5%" ]);
+  const backgroundY = useTransform(scrollY, [ 0, 2000 ], [ "0%", "7%" ]);
   const backgroundScale = useTransform(scrollY, [ 0, 1000 ], [ 1, 1.15 ]);
   const overlayOpacity = useTransform(scrollY, [ 0, 500, 1000 ], [ 0.6, 0.75, 0.85 ]);
 
